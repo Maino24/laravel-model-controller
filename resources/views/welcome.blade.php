@@ -3,10 +3,27 @@
 @section('title-page', 'Movies')
     
 @section('main-content')
-    <h1>TUTTI I FILM</h1>
+    <h1 class="text-center pb-5">TUTTI I FILM</h1>
     {{--VERRANNO INSERITI TUTTI I RECORD DELLA TABELLA MOVIES DEL laravel_model_controller (DB)--}}
 
-    @foreach ($movies as $elem)
-        <h2>{{ $elem->title }}</h2>
-    @endforeach
+    <div class="container">
+        <div class="row">
+   
+            @foreach ($movies as $elem)
+                
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Titolo: {{ $elem->title }}</h5>
+                            <p class="card-text">Titolo originale: {{ $elem->original_title }}</p>
+                            <p>{{ $elem->nationality }}</p>
+                            <p>Data di uscita: {{ $elem->date }}</p>
+                            <p>Voto: {{ $elem->vote }}</p>
+                        </div>
+                    </div>
+                    
+            @endforeach
+
+        </div>
+    </div>
+
 @endsection
